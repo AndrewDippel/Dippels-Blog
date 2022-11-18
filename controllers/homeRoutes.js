@@ -45,7 +45,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const posts = projectData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('/dashboard', {
+    res.render('dashboard', {
       posts,
       logged_in: req.session.logged_in
     });
