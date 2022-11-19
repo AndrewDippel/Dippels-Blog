@@ -21,3 +21,8 @@ header,
 .hidden {
   display: none;
 }
+
+header {
+  background-color: #422e7f;
+
+}

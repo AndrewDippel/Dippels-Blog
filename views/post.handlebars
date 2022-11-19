@@ -3,13 +3,24 @@
   <h2>{{name}}</h2>
   <p>{{description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  {{#each comment as |comment| }}
+  <div class="comments">
+    <h2>commented by: {{comment.user_id.name}}</h2>
+    <h2>date commented: {{format_date date_created}}</h2>
+    <p>
+      {{comment.comment}}
+    </p>
+  </div>
+  {{#each}}
+  {{#if logged_in}}
   <div class="form-group">
     <label for="comment">comment:</label>
     <input class="form-input" type="text" id="comment" />
+    <br <p>
+    <button class="btn btn-primary" id="saveComment">Add comment</button>
+    </p>
   </div>
-  <br <p>
-  <button class="btn btn-primary">Add comment</button>
-  </p>
+  {{/if}}
 </div>
 
 <script src="/js/comment.js"></script>

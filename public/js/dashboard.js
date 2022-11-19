@@ -2,7 +2,7 @@ function showNewForm() {
     document.querySelector(".hidden").classList.remove("hidden")
 }
 
-const newFormHandler = async (event) => {
+const newPost = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('#title').value.trim();
@@ -30,4 +30,4 @@ document
 if (document.querySelector("#savePost"))
     document
         .querySelector('#savePost')
-        .addEventListener('click', newFormHandler);
+        .addEventListener('click', newPost);

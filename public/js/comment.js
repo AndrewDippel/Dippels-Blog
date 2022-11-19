@@ -4,7 +4,7 @@ const addComment = async (event) => {
     const comment = document.querySelector('#comment').value.trim();
 
     if (comment) {
-        const response = await fetch(`/api/posts`, {
+        const response = await fetch(`/api/comment`, {
             method: 'POST',
             body: JSON.stringify({ comment }),
             headers: {
@@ -15,11 +15,11 @@ const addComment = async (event) => {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert('Failed to create post');
+            alert('Failed to create comment');
         }
     }
 };
 document
-    .querySelector('#newPost')
+    .querySelector('#saveComment')
     .addEventListener('click', addComment);
 
