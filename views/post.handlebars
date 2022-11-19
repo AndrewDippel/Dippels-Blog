@@ -3,12 +3,12 @@
   <h2>{{name}}</h2>
   <p>{{description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  {{#each comment}}
+  {{#each comment as |comments|}}
   <div class="comments">
-    <h2>commented by: {{user_id.name}}</h2>
-    <h2>date commented: {{format_date date_created}}</h2>
+    <h2>commented by: {{comments.user.name}}</h2>
+    <h2>date commented: {{format_date comments.date_created}}</h2>
     <p>
-      {{comment}}
+      {{comments.comment}}
     </p>
   </div>
   {{/each}}
@@ -23,4 +23,4 @@
   {{/if}}
 </div>
 
-<script src="js/comment.js"></script>
+<script src="/js/comment.js"></script>
