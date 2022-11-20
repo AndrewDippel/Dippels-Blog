@@ -61,13 +61,18 @@ router.get('/post/:id', withAuth, async (req, res) => {
           model: User,
         },
         {
-          model: Comment
+          model: Comment,
+          include: [
+            {
+              model: User
+            }
+          ]
         }
       ],
     });
 
     const post = projectData.get({ plain: true });
-
+    console.log(post)
     res.render('post', {
       ...post,
       logged_in: req.session.logged_in

@@ -72,8 +72,8 @@ if (document.querySelector("#savePost"))
         .querySelector('#savePost')
         .addEventListener('click', newPost);
 document
-    .querySelector('#deletePost')
-    .addEventListener('click', deletePost);
+    .querySelectorAll('#deletePost')
+    .forEach((elem) => elem.addEventListener('click', deletePost));
 document
     .querySelector('#editPost')
     .addEventListener('click', editPost);
