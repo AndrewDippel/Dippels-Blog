@@ -40,8 +40,8 @@ header {
 
 .addPost,
 .addComment {
-  margin-left: 20%;
-  width: 60%;
+  margin-left: 5%;
+  width: 90%;
   font-size: 16px;
   background: #422e7f;
   padding: 30px 30px 15px 30px;
@@ -49,6 +49,14 @@ header {
   color: #1b89bc;
 }
 
+#title {
+  width: 60%;
+  border-radius: 5px;
+}
+
 label {
   font-size: larger;
+  width: 25%;
+  float: left;
+  margin-top: 6px;
 }
