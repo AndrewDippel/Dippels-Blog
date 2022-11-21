@@ -46,7 +46,10 @@ async function editPost(event) {
     event.preventDefault();
     const title = document.querySelector('#title').value.trim();
     const content = document.querySelector('#content').value.trim();
-    const response = await fetch('/', {
+    const id = event.target.getAttribute('data-id');
+
+
+    const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
             title,
@@ -58,7 +61,7 @@ async function editPost(event) {
     });
 
     if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.reload();
     } else {
         alert('Failed to edit post');
     }
@@ -72,10 +75,11 @@ if (document.querySelector("#savePost"))
         .querySelector('#savePost')
         .addEventListener('click', newPost);
 document
-    .querySelectorAll('#deletePost')
+    .querySelectorAll('.deletePost')
     .forEach((elem) => elem.addEventListener('click', deletePost));
 document
-    .querySelector('#editPost')
-    .addEventListener('click', editPost);
+    .querySelectorAll('.editPost')
+    .forEach((elem) => elem.addEventListener('click', editPost));
+
 
 

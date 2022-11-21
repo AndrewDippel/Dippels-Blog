@@ -35,4 +35,23 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+router.put('/:id', (req, res) => {
+  Post.postData(
+    {
+      title: req.body.title,
+      content: req.body.content
+
+    },
+    {
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    }
+  )
+    .then((updatePost) => {
+      res.json(updatePost);
+    })
+    .catch((err) => res.json(err));
+});
 module.exports = router;
